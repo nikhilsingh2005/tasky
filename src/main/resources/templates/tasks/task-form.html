@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+          crossorigin="anonymous">
+
+    <title>Add ToDo Item</title>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h3>Add ToDo Item</h3>
+    <hr>
+
+    <p class="h4 mb-4">Add ToDo Item</p>
+
+    <form action="#" th:action="@{/tasks/save}"
+          th:object="${toDoTask}" method="POST">
+
+        <input type="text" th:field="*{id}"
+               class="form-control mb-4 w-25" placeholder="Id">
+        <input type="text" th:field="*{title}"
+               class="form-control mb-4 w-25" placeholder="Title">
+
+        <input type="text" th:field="*{date}"
+               class="form-control mb-4 w-25" placeholder="Date (format : yyyy-mm-dd)">
+
+        <input type="text" th:field="*{status}"
+               class="form-control mb-4 w-25" placeholder="Status">
+
+        <!-- Color the Save button using Bootstrap btn-info -->
+        <button type="submit" class="btn btn-info col-2">Save</button>
+
+        <!-- Adding a new Cancel button with btn-danger (red color) -->
+        <a th:href="@{/tasks/list}" class="btn btn-danger col-2 ms-3">Cancel</a>
+
+        <!-- Adding another button with btn-warning (yellow color) for example -->
+        <a th:href="@{/tasks/list}" class="btn btn-warning col-2 ms-3">Reset</a>
+
+    </form>
+
+    <hr>
+    <a th:href="@{/tasks/list}" class="btn btn-primary">Back to ToDo Item List</a>
+
+</div>
+
+</body>
+
+</html>
